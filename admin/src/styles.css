@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f4f7fb;
+  color: #0b1930;
+  font-family: Inter, sans-serif;
+}
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+button,
+input {
+  font: inherit;
+}
+.admin-input {
+  margin-top: 0.5rem;
+  min-height: 3rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #dce5f0;
+  padding: 0 1rem;
+  outline: none;
+}
+.admin-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px #dbeafe;
+}
+.admin-button{@apply inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-60}.secondary-button{@apply inline-flex min-h-11 items-center justify-center rounded-xl border border-line bg-white px-5 text-sm font-semibold}.icon-button{@apply grid h-10 w-10 place-items-center rounded-xl border border-line bg-white hover:border-brand-300}.field{@apply block text-sm font-semibold}.card{@apply rounded-2xl border border-line bg-white p-5 shadow-soft}.error-box{@apply rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700}.admin-table{@apply overflow-hidden rounded-2xl border border-line bg-white}.admin-row{@apply grid w-full grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-line p-4 last:border-b-0 hover:bg-slate-50}.modal-backdrop{@apply fixed inset-0 z-50 overflow-y-auto bg-ink/50 p-3 sm:p-8}.modal-panel{@apply mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl}
+@media(max-width:640px){.admin-row{grid-template-columns:1fr auto}.admin-row>:last-child{grid-column:1/-1}.modal-backdrop{padding:0}.modal-panel{min-height:100vh;border-radius:0}}

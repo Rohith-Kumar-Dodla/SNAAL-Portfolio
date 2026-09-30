@@ -1,0 +1,3 @@
+import jwt from'jsonwebtoken';import{env}from'../config/env.js';import{AppError}from'../utils/AppError.js';
+export function requireAuth(req,_res,next){const token=req.cookies?.accessToken||req.headers.authorization?.replace(/^Bearer\s+/i,'');if(!token||!env.JWT_ACCESS_SECRET)return next(new AppError('Authentication required',401,'UNAUTHORIZED'));try{const payload=jwt.verify(token,env.JWT_ACCESS_SECRET);if(payload.purpose!=='access')throw new Error();req.user=payload;next()}catch{return next(new AppError('Invalid or expired access token',401,'UNAUTHORIZED'))}}
+export const authorize=(...roles)=>(req,_res,next)=>roles.includes(req.user?.role)?next():next(new AppError('Insufficient permissions',403,'FORBIDDEN'));
